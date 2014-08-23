@@ -39,12 +39,14 @@ allData <- rbind(test, train)
 
 ## Create descriptive activity names
 allData$Activity[allData$Activity == 1] <- "WALKING"
-allData$Activity[allData$Activity == 2] <- "WALKING UPSTAIRS"
-allData$Activity[allData$Activity == 3] <- "WALKING DOWNSTAIRS"
+allData$Activity[allData$Activity == 2] <- "WALKING_UP"
+allData$Activity[allData$Activity == 3] <- "WALKING_DOWN"
 allData$Activity[allData$Activity == 4] <- "SITTING"
 allData$Activity[allData$Activity == 5] <- "STANDING"
 allData$Activity[allData$Activity == 6] <- "LAYING"
 
+## Agregate Data
+tidyData = aggregate(allData[,3:81], by=list(allData$Activity, allData$Subject), FUN=mean)
 
 ## Write tidy dataset
-write.table(allData, "./tidy.txt", row.name=FALSE)
+write.table(tidyData, "./tidy.txt", row.name=FALSE)

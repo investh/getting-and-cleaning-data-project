@@ -41,3 +41,4 @@ The following files are available for the train and test data. Their description
 - Only columns with mean and standard deviation have been selected
 - Column headers have been assigned
 - Descriptive names of activities have been assigned
+- Variables aggregated by activity and subject
